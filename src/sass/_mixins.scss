@@ -1,0 +1,17 @@
+@mixin addBtn {
+        position: absolute;
+        bottom: -15%;
+        left:0;
+        transform: translate(-50%,-50%);
+        width:40px;
+        height: 40px;
+        border-radius: 50%;
+        border:10px solid white;
+        box-sizing: content-box;
+        box-shadow: 0 0 10px 1px seagreen;
+        background: linear-gradient(0deg, rgba(57,233,218,1) 0%, rgba(124,241,169,1) 100%);
+        color:white;
+        font-size:2.5rem;
+        outline:none;
+        cursor: pointer;
+}
