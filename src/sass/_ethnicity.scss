@@ -6,25 +6,22 @@ width: 100%;
 padding: 15px 0px;
 &__mainTab{
     width:140px;
-    height: 30px;
     border:1px solid #ddd;
     margin-right: 5px;
-    padding-left: 5px;
-    line-height: 30px;
+    padding: 5px 0px 5px 5px;
     font-size: 1.1rem;
+    text-align: start;
     @include mq(xsmall){
         width:170px;
         font-size: 1.2rem;
     }
   }
 }
-
 .ethniOptions{
     position: relative;
     left:0;
-    min-height:100px;
     border-left: 1px solid #ddd;
-    padding-top:15px;
+    padding:20px 0px;
     margin-left: 10px;
     @include mq(xsmall){
         margin-left: 20px;
@@ -43,11 +40,10 @@ padding: 15px 0px;
         display: flex;
         justify-content: space-between;
         width:150px;
-        min-height: 30px;
-        line-height: 30px;
         border: 1px solid #ddd;
         background-color: #fff;
         margin: 0px 0px 5px 20px;
+        padding: 5px 0px;
         z-index: 1;
         transition: 0.2s linear;
         &--onPosition{
@@ -66,6 +62,10 @@ padding: 15px 0px;
         }
     }
     &__text{
+        width:70%;
+        text-align: start;
+        word-wrap: break-word;
+        line-height:20px;
         padding-left: 5px;
         font-size: 1.1rem;
         @include mq(xsmall){
@@ -76,7 +76,8 @@ padding: 15px 0px;
         @include addBtn;
         width:25px;
         height: 25px;
-        bottom:-23%;
+        bottom:0;
+        transform: translate(-50%,50%);
         border:none;
         box-shadow: none;
         font-size: 2rem;

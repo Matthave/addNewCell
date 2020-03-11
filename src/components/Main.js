@@ -54,8 +54,8 @@ class Main extends React.Component {
     if (this.state.popupInputValue === '' || this.state.popupInputValue.length < 2) {
       alert('Invalid cell name! The minimum number of characters is 2 characters')
       return
-    } else if (this.state.popupInputValue.length > 22) {
-      alert('Invalid cell name! the maximum number of characters is 22 characters')
+    } else if (this.state.popupInputValue.length > 100) {
+      alert(`Invalid cell name! the maximum number of characters is 100 characters. You entered ${this.state.popupInputValue.length} characters`)
       return
     }
     this.state.cells.push({ id: index, text: this.state.popupInputValue })

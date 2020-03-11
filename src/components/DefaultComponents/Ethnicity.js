@@ -20,8 +20,8 @@ class Ethnicity extends React.Component {
     if (this.state.ethniPopupInputValue === '' || this.state.ethniPopupInputValue.length < 2) {
       alert('Invalid cell name! The minimum number of characters is 2 characters')
       return
-    } else if (this.state.ethniPopupInputValue.length > 15) {
-      alert('Invalid cell name! the maximum number of characters is 15 characters')
+    } else if (this.state.ethniPopupInputValue.length > 50) {
+      alert(`Invalid cell name! the maximum number of characters is 50 characters. You entered ${this.state.ethniPopupInputValue.length} characters`)
       return
     }
     this.state.cellsEthni.push({ id: index, text: this.state.ethniPopupInputValue })
