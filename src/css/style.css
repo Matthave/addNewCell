@@ -8,6 +8,7 @@
 
 html {
   font-size: 10px;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .App {
@@ -46,7 +47,7 @@ html {
   left: 0;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 90px;
+  width: 150px;
   height: 40px;
   background: -webkit-gradient(linear, left top, left bottom, from(#a076f4), to(#7476f7));
   background: linear-gradient(180deg, #a076f4 0%, #7476f7 100%);
@@ -57,7 +58,7 @@ html {
   z-index: 1;
   color: white;
   font-size: 1.5rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 @media (min-width: 460px) {
@@ -83,18 +84,24 @@ html {
 .main__tabElement {
   position: relative;
   top: 100%;
-  left: 15%;
-  width: 125%;
+  left: 0;
+  width: 130%;
   padding-left: 7.5px;
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 15px 0px #eee;
           box-shadow: 0px 0px 15px 0px #eee;
   background: -webkit-gradient(linear, left top, left bottom, from(#a076f4), to(#7476f7));
   background: linear-gradient(180deg, #a076f4 0%, #7476f7 100%);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 600;
   color: #4B597B;
   font-size: 1.1rem;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.main__tabElement--onPosition {
+  left: 15%;
 }
 
 @media (min-width: 460px) {
@@ -127,6 +134,13 @@ html {
           transform: translate(-50%, -50%);
   color: #B7BDCA;
   font-size: 1.1rem;
+  opacity: 0;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.main__tabElement .spanAnd--onPosition {
+  opacity: 1;
 }
 
 .divLine {
@@ -190,7 +204,7 @@ html {
 }
 
 .ethni__mainTab {
-  width: 120px;
+  width: 140px;
   height: 30px;
   border: 1px solid #ddd;
   margin-right: 5px;
@@ -223,23 +237,37 @@ html {
 
 .ethniOptions__tab {
   position: relative;
+  opacity: 0;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.ethniOptions__tab--onPosition {
+  opacity: 1;
 }
 
 .ethniOptions__element {
   position: relative;
+  left: -17.5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 130px;
+  width: 150px;
   min-height: 30px;
   line-height: 30px;
   border: 1px solid #ddd;
   background-color: #fff;
   margin: 0px 0px 5px 20px;
   z-index: 1;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.ethniOptions__element--onPosition {
+  left: 0;
 }
 
 @media (min-width: 460px) {
@@ -250,6 +278,13 @@ html {
 
 .ethniOptions__element .spanAnd {
   left: -35px;
+  opacity: 0;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.ethniOptions__element .spanAnd--onPosition {
+  opacity: 1;
 }
 
 .ethniOptions__text {

@@ -17,11 +17,16 @@ class Cell extends React.Component {
     const classes = ['main__tab'];
     if (this.state.onPosition) classes.push('main__tab--onPosition')
 
+    const classesElemment = ['main__tabElement'];
+    if (this.state.onPosition) classesElemment.push('main__tabElement--onPosition')
+    const classesSpanAnd = ['spanAnd']
+    if (this.state.onPosition) classesSpanAnd.push('spanAnd--onPosition')
+
     return (
       <div className={classes.join(' ')}>
         <div className="divLine"></div>
-        <div className="main__tabElement">
-          <span className='spanAnd'>And</span>
+        <div className={classesElemment.join(' ')}>
+          <span className={classesSpanAnd.join(' ')}>And</span>
           <div className="main__tabElementText">{this.props.text}
             <button onClick={() => this.props.removeCell(this.props.id)} className="subtractBtn">-</button>
           </div>

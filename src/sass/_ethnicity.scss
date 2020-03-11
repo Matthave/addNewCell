@@ -5,7 +5,7 @@ flex-wrap: wrap;
 width: 100%;
 padding: 15px 0px;
 &__mainTab{
-    width:120px;
+    width:140px;
     height: 30px;
     border:1px solid #ddd;
     margin-right: 5px;
@@ -31,23 +31,38 @@ padding: 15px 0px;
     }
     &__tab{
         position: relative;
+        opacity: 0;
+        transition: 0.2s linear;
+        &--onPosition{
+            opacity: 1;
+        }
     }
     &__element{
         position: relative;
+        left:-17.5px;
         display: flex;
         justify-content: space-between;
-        width:130px;
+        width:150px;
         min-height: 30px;
         line-height: 30px;
         border: 1px solid #ddd;
         background-color: #fff;
         margin: 0px 0px 5px 20px;
         z-index: 1;
+        transition: 0.2s linear;
+        &--onPosition{
+            left:0;
+        }
         @include mq(xsmall){
             width:170px;
         }
         .spanAnd{
             left:-35px;
+            opacity: 0;
+            transition: 0.2s linear;
+            &--onPosition{
+                opacity: 1;
+            }
         }
     }
     &__text{

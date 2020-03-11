@@ -17,6 +17,13 @@ class Ethnicity extends React.Component {
 
   addEthniCell = (event) => {
     event.preventDefault()
+    if (this.state.ethniPopupInputValue === '' || this.state.ethniPopupInputValue.length < 2) {
+      alert('Invalid cell name! The minimum number of characters is 2 characters')
+      return
+    } else if (this.state.ethniPopupInputValue.length > 15) {
+      alert('Invalid cell name! the maximum number of characters is 15 characters')
+      return
+    }
     this.state.cellsEthni.push({ id: index, text: this.state.ethniPopupInputValue })
     index++;
     this.setState({
@@ -80,8 +87,8 @@ class Ethnicity extends React.Component {
     return (
       <div className="main__tab main__tab--onPosition">
         <div className="divLine"></div>
-        <div className="main__tabElement">
-          <span className='spanAnd'>And</span>
+        <div className="main__tabElement main__tabElement--onPosition">
+          <span className='spanAnd spanAnd--onPosition'>And</span>
           <div className="main__tabElementText">
             <section className="ethni">
               <div className="ethni__mainTab">Ethnicity</div>
