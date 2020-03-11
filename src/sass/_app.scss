@@ -12,3 +12,16 @@ html{
 .App{
     position: relative;
 }
+
+::-webkit-scrollbar{
+    width: 4px;
+}
+::-webkit-scrollbar-track{
+    background:black;
+}
+::-webkit-scrollbar-thumb{
+    background: #eee;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(180deg, rgba(160,118,244,1) 0%, rgba(116,118,247,1) 100%);
+}

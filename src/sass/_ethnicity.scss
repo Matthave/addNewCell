@@ -5,13 +5,17 @@ flex-wrap: wrap;
 width: 100%;
 padding: 15px 0px;
 &__mainTab{
-    width:110px;
+    width:120px;
     height: 30px;
     border:1px solid #ddd;
     margin-right: 5px;
     padding-left: 5px;
     line-height: 30px;
     font-size: 1.1rem;
+    @include mq(xsmall){
+        width:170px;
+        font-size: 1.2rem;
+    }
   }
 }
 
@@ -22,6 +26,9 @@ padding: 15px 0px;
     border-left: 1px solid #ddd;
     padding-top:15px;
     margin-left: 10px;
+    @include mq(xsmall){
+        margin-left: 20px;
+    }
     &__tab{
         position: relative;
     }
@@ -29,13 +36,16 @@ padding: 15px 0px;
         position: relative;
         display: flex;
         justify-content: space-between;
-        width:120px;
+        width:130px;
         min-height: 30px;
         line-height: 30px;
         border: 1px solid #ddd;
         background-color: #fff;
         margin: 0px 0px 5px 20px;
         z-index: 1;
+        @include mq(xsmall){
+            width:170px;
+        }
         .spanAnd{
             left:-35px;
         }
@@ -43,6 +53,9 @@ padding: 15px 0px;
     &__text{
         padding-left: 5px;
         font-size: 1.1rem;
+        @include mq(xsmall){
+            font-size: 1.2rem;
+        }
     }
     .ethni__btn{
         @include addBtn;

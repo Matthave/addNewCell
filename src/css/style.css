@@ -14,10 +14,27 @@ html {
   position: relative;
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #eee;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#a076f4), to(#7476f7));
+  background: linear-gradient(180deg, #a076f4 0%, #7476f7 100%);
+}
+
 .main {
   position: relative;
   width: 160px;
-  min-height: 50vh;
+  min-height: 60vh;
   border-left: 1px solid #ddd;
   margin: 50px auto 0px auto;
   padding: 25px 0px;
@@ -43,16 +60,31 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@media (min-width: 460px) {
+  .main__people {
+    width: 165px;
+    height: 45px;
+    line-height: 45px;
+  }
+}
+
 .main__tab {
   position: relative;
   margin: 25px 0px;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  opacity: 0;
+}
+
+.main__tab--onPosition {
+  opacity: 1;
 }
 
 .main__tabElement {
   position: relative;
   top: 100%;
   left: 15%;
-  width: 110%;
+  width: 125%;
   padding-left: 7.5px;
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 15px 0px #eee;
@@ -63,6 +95,13 @@ html {
   font-weight: 600;
   color: #4B597B;
   font-size: 1.1rem;
+}
+
+@media (min-width: 460px) {
+  .main__tabElement {
+    width: 155%;
+    font-size: 1.2rem;
+  }
 }
 
 .main__tabElementText {
@@ -151,13 +190,20 @@ html {
 }
 
 .ethni__mainTab {
-  width: 110px;
+  width: 120px;
   height: 30px;
   border: 1px solid #ddd;
   margin-right: 5px;
   padding-left: 5px;
   line-height: 30px;
   font-size: 1.1rem;
+}
+
+@media (min-width: 460px) {
+  .ethni__mainTab {
+    width: 170px;
+    font-size: 1.2rem;
+  }
 }
 
 .ethniOptions {
@@ -167,6 +213,12 @@ html {
   border-left: 1px solid #ddd;
   padding-top: 15px;
   margin-left: 10px;
+}
+
+@media (min-width: 460px) {
+  .ethniOptions {
+    margin-left: 20px;
+  }
 }
 
 .ethniOptions__tab {
@@ -181,13 +233,19 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 120px;
+  width: 130px;
   min-height: 30px;
   line-height: 30px;
   border: 1px solid #ddd;
   background-color: #fff;
   margin: 0px 0px 5px 20px;
   z-index: 1;
+}
+
+@media (min-width: 460px) {
+  .ethniOptions__element {
+    width: 170px;
+  }
 }
 
 .ethniOptions__element .spanAnd {
@@ -197,6 +255,12 @@ html {
 .ethniOptions__text {
   padding-left: 5px;
   font-size: 1.1rem;
+}
+
+@media (min-width: 460px) {
+  .ethniOptions__text {
+    font-size: 1.2rem;
+  }
 }
 
 .ethniOptions .ethni__btn {
@@ -231,7 +295,7 @@ html {
 
 .popup {
   position: fixed;
-  top: 50%;
+  top: 60%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -247,10 +311,18 @@ html {
           justify-content: center;
   width: 220px;
   height: 250px;
+  opacity: 0;
   background: -webkit-gradient(linear, left top, left bottom, from(#a076f4), to(#7476f7));
   background: linear-gradient(180deg, #a076f4 0%, #7476f7 100%);
   border-radius: 5px;
   z-index: 1;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.popup--onPosition {
+  top: 50%;
+  opacity: 1;
 }
 
 .popup::before {

@@ -1,6 +1,6 @@
 .popup{
     position: fixed;
-    top:50%;
+    top:60%;
     left:50%;
     transform: translate(-50%,-50%);
     display: flex;
@@ -8,9 +8,15 @@
     justify-content: center;
     width:220px;
     height: 250px;
+    opacity: 0;
     background: linear-gradient(180deg, rgba(160,118,244,1) 0%, rgba(116,118,247,1) 100%);
     border-radius: 5px;
     z-index: 1;
+    transition: 0.2s linear;
+    &--onPosition{
+        top:50%;
+        opacity: 1;
+    }
     &::before{
         content: '';
         position: absolute;

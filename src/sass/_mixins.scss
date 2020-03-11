@@ -15,3 +15,16 @@
         outline:none;
         cursor: pointer;
 }
+
+$breakpoints: (
+  xsmall: (min-width: 460px),
+);
+
+@mixin mq($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint );
+  @if($size){
+    @media #{$size}{
+    @content
+    }
+  }
+} 
