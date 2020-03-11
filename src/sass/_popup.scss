@@ -7,11 +7,12 @@
     flex-direction: column;
     justify-content: center;
     width:220px;
-    height: 250px;
+    height: 280px;
     opacity: 0;
     background: linear-gradient(180deg, rgba(160,118,244,1) 0%, rgba(116,118,247,1) 100%);
     border-radius: 5px;
     z-index: 1;
+    filter: blur(0px);
     transition: 0.2s linear;
     &--onPosition{
         top:50%;
@@ -24,7 +25,7 @@
         left:50%;
         transform: translate(-50%,-50%);
         width:210px;
-        height: 240px;
+        height: 270px;
         background-color: rgb(233, 220, 241);
         z-index: -1;
     }
@@ -47,7 +48,8 @@
        left:50%;
        background: linear-gradient(180deg, rgba(160,118,244,1) 0%, rgba(116,118,247,1) 100%);
        box-shadow: none;
-       bordeR:none;
+       border:none;
+       box-shadow: 0 20px 15px 0px rgba(136,138,255,1);
     }
 }
 

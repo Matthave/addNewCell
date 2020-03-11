@@ -8,7 +8,7 @@ function DefaultThree(props) {
         <span className='spanAnd spanAnd--onPosition'>And</span>
         <div className="main__tabElementText">
           Income Yearly 45USD+
-            <button onClick={() => props.removeDefaultCells('defaultThree')} className="subtractBtn">-</button>
+            <button onClick={() => props.removeDefaultCells('defaultThree')} className="subtractBtn"><i className="fas fa-minus"></i></button>
         </div>
       </div>
     </div>

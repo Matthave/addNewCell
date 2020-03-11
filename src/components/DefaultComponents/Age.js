@@ -7,7 +7,7 @@ function Age(props) {
       <div className="main__tabElement main__tabElement--onPosition">
         <span className='spanAnd spanAnd--onPosition'>And</span>
         <div className="main__tabElementText">Age 40+
-                <button onClick={() => props.removeDefaultCells('defaultOne')} className="subtractBtn">-</button>
+                <button onClick={() => props.removeDefaultCells('defaultOne')} className="subtractBtn"><i className="fas fa-minus"></i></button>
         </div>
       </div>
     </div>

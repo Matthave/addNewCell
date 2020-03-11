@@ -18,13 +18,23 @@ class Main extends React.Component {
   }
 
   clickHandlePopup = (id) => {
+    const main = document.querySelector('.main')
+    const title = document.querySelector('.App__title')
+    const logo = document.querySelector('.App__logo')
     if (id === 'show') {
+      main.style.filter = 'blur(2px)'
+      title.style.filter = 'blur(2px)'
+      logo.style.filter = 'blur(2px)'
       this.setState({
         popup: true,
       })
     } else if (id === 'hide') {
+      main.style.filter = 'blur(0px)'
+      title.style.filter = 'blur(0px)'
+      logo.style.filter = 'blur(0px)'
       this.setState({
         popup: false,
+        popupInputValue: '',
       })
     }
   }
@@ -37,6 +47,9 @@ class Main extends React.Component {
   }
 
   addCell = (event) => {
+    const main = document.querySelector('.main')
+    const title = document.querySelector('.App__title')
+    const logo = document.querySelector('.App__logo')
     event.preventDefault()
     if (this.state.popupInputValue === '' || this.state.popupInputValue.length < 2) {
       alert('Invalid cell name! The minimum number of characters is 2 characters')
@@ -51,6 +64,10 @@ class Main extends React.Component {
       popup: false,
       popupInputValue: '',
     })
+
+    main.style.filter = 'blur(0px)'
+    title.style.filter = 'blur(0px)'
+    logo.style.filter = 'blur(0px)'
     return
   }
 
@@ -91,15 +108,16 @@ class Main extends React.Component {
     ))
 
     return (
-      <main className='main'>
-        <div className="main__people">people</div>
-        {this.state.removeDefaultOne ? null : <Age removeDefaultCells={this.removeDefaultCells} />}
-        {this.state.removeDefaultTwo ? null : <Ethnicity removeDefaultCells={this.removeDefaultCells} />}
-        {this.state.removeDefaultThree ? null : <DefaultThree removeDefaultCells={this.removeDefaultCells} />}
+      <>
+        <main className='main'>
+          <div className="main__people">people</div>
+          {this.state.removeDefaultOne ? null : <Age removeDefaultCells={this.removeDefaultCells} />}
+          {this.state.removeDefaultTwo ? null : <Ethnicity removeDefaultCells={this.removeDefaultCells} />}
+          {this.state.removeDefaultThree ? null : <DefaultThree removeDefaultCells={this.removeDefaultCells} />}
 
-        {newCell}
-        <button className="addBtn" onClick={() => this.clickHandlePopup('show')}>+</button>
-
+          {newCell}
+          <button className="addBtn" onClick={() => this.clickHandlePopup('show')}><i className="fas fa-plus"></i></button>
+        </main>
         {this.state.popup ? <Popup
           inputValue={this.state.popupInputValue}
           hidePopup={this.clickHandlePopup}
@@ -107,7 +125,7 @@ class Main extends React.Component {
           change={this.onChangeInput}
         />
           : null}
-      </main>
+      </>
     )
   }
 }

@@ -7,7 +7,7 @@ function EthniDefaultOne(props) {
       <div className="ethniOptions__element ethniOptions__element--onPosition">
         <span className='spanAnd spanAnd--onPosition'>Or</span>
         <h3 className="ethniOptions__text">Black</h3>
-        <button onClick={() => props.removeEthniDefaultCells('defaultOne')} className="subtractBtn">-</button>
+        <button onClick={() => props.removeEthniDefaultCells('defaultOne')} className="subtractBtn"><i className="fas fa-minus"></i></button>
       </div>
     </div>
   )

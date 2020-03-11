@@ -8,25 +8,30 @@
     border-radius: 50%;
     border:10px solid white;
     box-sizing: content-box;
-    box-shadow: 0 0 7px 0px seagreen;
+    box-shadow: 0 20px 15px 0px rgba(87,255,238,1);
     background: linear-gradient(0deg, rgba(57,233,218,1) 0%, rgba(124,241,169,1) 100%);
-    color:white;
-    font-size:2.5rem;
     outline:none;
     cursor: pointer;
+    .fas{
+        color:white;
+        font-size: 1.75rem;
+    }
 }
 
 .subtractBtn{
     width:20px;
     height: 20px;
     border-radius: 50%;
+    box-shadow: 0 4px 10px 0px rgba(247,105,142,1);
     line-height: 20px;
     align-self: center;
     flex-shrink: 0;
     background: linear-gradient(180deg, rgba(247,105,142,1) 0%, rgba(242,65,97,1) 100%);
-    color:white;
     margin-right: 15px;
-    font-size:2.5rem;
     outline:none;
     cursor: pointer;
+    .fas{
+        color:white;
+        font-size: 1rem;
+    }
 }

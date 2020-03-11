@@ -29,7 +29,7 @@ class CellEthni extends React.Component {
         <div className={classesElement.join(' ')}>
           <span className={classesSpanOr.join(' ')}>Or</span>
           <h3 className="ethniOptions__text">{this.props.text}</h3>
-          <button onClick={() => this.props.removeCell(this.props.id)} className="subtractBtn">-</button>
+          <button onClick={() => this.props.removeCell(this.props.id)} className="subtractBtn"><i className="fas fa-minus"></i></button>
         </div>
       </div>
     )

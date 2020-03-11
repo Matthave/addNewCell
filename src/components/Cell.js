@@ -28,7 +28,7 @@ class Cell extends React.Component {
         <div className={classesElemment.join(' ')}>
           <span className={classesSpanAnd.join(' ')}>And</span>
           <div className="main__tabElementText">{this.props.text}
-            <button onClick={() => this.props.removeCell(this.props.id)} className="subtractBtn">-</button>
+            <button onClick={() => this.props.removeCell(this.props.id)} className="subtractBtn"><i className="fas fa-minus"></i></button>
           </div>
         </div>
       </div>

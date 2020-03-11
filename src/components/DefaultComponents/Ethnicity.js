@@ -92,7 +92,7 @@ class Ethnicity extends React.Component {
           <div className="main__tabElementText">
             <section className="ethni">
               <div className="ethni__mainTab">Ethnicity</div>
-              <button onClick={() => this.props.removeDefaultCells('defaultTwo')} className="subtractBtn">-</button>
+              <button onClick={() => this.props.removeDefaultCells('defaultTwo')} className="subtractBtn"><i className="fas fa-minus"></i></button>
 
               <div className="ethniOptions">
                 {this.state.removeEthniDefaultOne ? null : <EthniDefaultOne removeEthniDefaultCells={this.removeEthniDefaultCells} />}
@@ -104,13 +104,15 @@ class Ethnicity extends React.Component {
           </div>
         </div>
 
-        {this.state.ethniPopup ? <EthniPopup
-          hidePopup={this.clickHandleEthniPopup}
-          ethniInputValue={this.state.ethniPopupInputValue}
-          change={this.onChangeInput}
-          addEthniCell={this.addEthniCell}
-        /> : null}
-      </div>
+        {
+          this.state.ethniPopup ? <EthniPopup
+            hidePopup={this.clickHandleEthniPopup}
+            ethniInputValue={this.state.ethniPopupInputValue}
+            change={this.onChangeInput}
+            addEthniCell={this.addEthniCell}
+          /> : null
+        }
+      </div >
     )
   }
 }
