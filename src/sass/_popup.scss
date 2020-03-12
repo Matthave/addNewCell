@@ -1,3 +1,11 @@
+.popupWrap{
+    position: fixed;
+    width:100vw;
+    height: 110vh;
+    top:-10%;
+    left:0;
+    background-color: transparent;
+}
 .popup{
     position: fixed;
     top:60%;

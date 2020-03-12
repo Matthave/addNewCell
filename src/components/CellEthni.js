@@ -23,13 +23,15 @@ class CellEthni extends React.Component {
     const classesSpanOr = ['spanAnd']
     if (this.state.newCellOnPosition) classesSpanOr.push('spanAnd--onPosition')
 
+    const { removeCell, text, id } = this.props
+
     return (
       <div className={classesCell.join(' ')}>
         <div className="divLine"></div>
         <div className={classesElement.join(' ')}>
           <span className={classesSpanOr.join(' ')}>Or</span>
-          <h3 className="ethniOptions__text">{this.props.text}</h3>
-          <button onClick={() => this.props.removeCell(this.props.id)} className="subtractBtn"><i className="fas fa-minus"></i></button>
+          <h3 className="ethniOptions__text">{text}</h3>
+          <button onClick={() => removeCell(id)} className="subtractBtn"><i className="fas fa-minus"></i></button>
         </div>
       </div>
     )

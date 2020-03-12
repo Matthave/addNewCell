@@ -22,14 +22,15 @@ class Cell extends React.Component {
     const classesSpanAnd = ['spanAnd']
     if (this.state.onPosition) classesSpanAnd.push('spanAnd--onPosition')
 
+    const { removeCell, text, id } = this.props
     return (
       <div className={classes.join(' ')}>
         <div className="divLine"></div>
         <div className={classesElemment.join(' ')}>
           <span className={classesSpanAnd.join(' ')}>And</span>
           <div className="main__tabElementText">
-            <h3 className="main__tabElementTxt">{this.props.text}</h3>
-            <button onClick={() => this.props.removeCell(this.props.id)} className="subtractBtn"><i className="fas fa-minus"></i></button>
+            <h3 className="main__tabElementTxt">{text}</h3>
+            <button onClick={() => removeCell(id)} className="subtractBtn"><i className="fas fa-minus"></i></button>
           </div>
         </div>
       </div>

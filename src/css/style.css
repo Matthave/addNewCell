@@ -400,6 +400,15 @@ html {
           box-shadow: 0 8px 10px 0px #57ffee;
 }
 
+.popupWrap {
+  position: fixed;
+  width: 100vw;
+  height: 110vh;
+  top: -10%;
+  left: 0;
+  background-color: transparent;
+}
+
 .popup {
   position: fixed;
   top: 60%;

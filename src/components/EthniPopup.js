@@ -13,21 +13,24 @@ class EthniPopup extends React.Component {
     }, 50);
   }
 
-
   render() {
     const classes = ['popup'];
     if (this.state.onPosition) classes.push('popup--onPosition')
 
+    const { addEthniCell, ethniInputValue, change, hidePopup } = this.props
+
     return (
-      <div className={classes.join(' ')}>
-        <form className="popup__form">
-          <label htmlFor="">
-            Add New Cell in Section Ethnicity
-          <input className='popup__input' value={this.props.EthniInputValue} onChange={this.props.change} placeholder='Name Cell' />
-          </label>
-          <button onClick={this.props.addEthniCell} className='popup__btn' type='submit'>+</button>
-        </form>
-        <button onClick={() => this.props.hidePopup('hide')} className="escapeBtn">x</button>
+      <div className="popupWrap">
+        <div className={classes.join(' ')}>
+          <form className="popup__form">
+            <label htmlFor="">
+              Add New Cell in Section Ethnicity
+          <input className='popup__input' value={ethniInputValue} onChange={change} placeholder='Name Cell' />
+            </label>
+            <button onClick={addEthniCell} className='popup__btn' type='submit'>+</button>
+          </form>
+          <button onClick={() => hidePopup('hide')} className="escapeBtn">x</button>
+        </div>
       </div>
     )
   }

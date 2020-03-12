@@ -17,16 +17,20 @@ class Popup extends React.Component {
     const classes = ['popup'];
     if (this.state.onPosition) classes.push('popup--onPosition')
 
+    const { addCell, hidePopup, change, inputValue } = this.props
+
     return (
-      <div className={classes.join(' ')}>
-        <form className="popup__form">
-          <label htmlFor="">
-            Add New Cell
-          <input className='popup__input' type="text" value={this.props.inputValue} onChange={this.props.change} placeholder='Name Cell' />
-          </label>
-          <button onClick={this.props.addCell} className='popup__btn' type='submit'>+</button>
-        </form>
-        <button onClick={() => this.props.hidePopup('hide')} className="escapeBtn">x</button>
+      <div className="popupWrap">
+        <div className={classes.join(' ')}>
+          <form className="popup__form">
+            <label htmlFor="">
+              Add New Cell
+          <input className='popup__input' type="text" value={inputValue} onChange={change} placeholder='Name Cell' />
+            </label>
+            <button onClick={addCell} className='popup__btn' type='submit'>+</button>
+          </form>
+          <button onClick={() => hidePopup('hide')} className="escapeBtn">x</button>
+        </div>
       </div>
     )
   }

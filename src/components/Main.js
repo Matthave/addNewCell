@@ -3,28 +3,37 @@ import Age from './DefaultComponents/Age'
 import Ethnicity from './DefaultComponents/Ethnicity'
 import DefaultThree from './DefaultComponents/DefaultThree'
 import Popup from './Popup'
+import EthniPopup from './EthniPopup'
 import Cell from './Cell'
+import CellEthni from './CellEthni'
 
 let index = 0;
+let ethniIndex = 0;
 
 class Main extends React.Component {
   state = {
     popup: false,
     popupInputValue: '',
+    ethniPopup: false,
+    ethniInputValue: '',
     removeDefaultOne: false,
     removeDefaultTwo: false,
     removeDefaultThree: false,
     cells: [],
+    ethniCells: [],
   }
+
+
 
   clickHandlePopup = (id) => {
     const main = document.querySelector('.main')
     const title = document.querySelector('.App__title')
     const logo = document.querySelector('.App__logo')
     if (id === 'show') {
-      main.style.filter = 'blur(2px)'
-      title.style.filter = 'blur(2px)'
-      logo.style.filter = 'blur(2px)'
+      main.style.filter = 'blur(4px)'
+      title.style.filter = 'blur(4px)'
+      logo.style.filter = 'blur(4px)'
+      document.body.style.overflow = 'hidden'
       this.setState({
         popup: true,
       })
@@ -32,9 +41,34 @@ class Main extends React.Component {
       main.style.filter = 'blur(0px)'
       title.style.filter = 'blur(0px)'
       logo.style.filter = 'blur(0px)'
+      document.body.style.overflow = 'inherit'
       this.setState({
         popup: false,
         popupInputValue: '',
+      })
+    }
+  }
+
+  clickHandleEthniPopup = (id) => {
+    const main = document.querySelector('.main')
+    const title = document.querySelector('.App__title')
+    const logo = document.querySelector('.App__logo')
+    if (id === 'show') {
+      main.style.filter = 'blur(4px)'
+      title.style.filter = 'blur(4px)'
+      logo.style.filter = 'blur(4px)'
+      document.body.style.overflow = 'hidden'
+      this.setState({
+        ethniPopup: true,
+      })
+    } else if (id === 'hide') {
+      main.style.filter = 'blur(0px)'
+      title.style.filter = 'blur(0px)'
+      logo.style.filter = 'blur(0px)'
+      document.body.style.overflow = 'inherit'
+      this.setState({
+        ethniPopup: false,
+        ethniInputValue: '',
       })
     }
   }
@@ -46,19 +80,27 @@ class Main extends React.Component {
     })
   }
 
+  onChangeEthniInput = (event) => {
+    event.preventDefault()
+    this.setState({
+      ethniInputValue: event.target.value
+    })
+  }
+
   addCell = (event) => {
     const main = document.querySelector('.main')
     const title = document.querySelector('.App__title')
     const logo = document.querySelector('.App__logo')
     event.preventDefault()
-    if (this.state.popupInputValue === '' || this.state.popupInputValue.length < 2) {
+    const { popupInputValue, cells } = this.state
+    if (popupInputValue === '' || popupInputValue.length < 2) {
       alert('Invalid cell name! The minimum number of characters is 2 characters')
       return
-    } else if (this.state.popupInputValue.length > 100) {
-      alert(`Invalid cell name! the maximum number of characters is 100 characters. You entered ${this.state.popupInputValue.length} characters`)
+    } else if (popupInputValue.length > 100) {
+      alert(`Invalid cell name! the maximum number of characters is 100 characters. You entered ${popupInputValue.length} characters`)
       return
     }
-    this.state.cells.push({ id: index, text: this.state.popupInputValue })
+    cells.push({ id: index, text: popupInputValue })
     index++;
     this.setState({
       popup: false,
@@ -68,6 +110,34 @@ class Main extends React.Component {
     main.style.filter = 'blur(0px)'
     title.style.filter = 'blur(0px)'
     logo.style.filter = 'blur(0px)'
+    document.body.style.overflow = 'inherit'
+    return
+  }
+
+  addEthniCell = (event) => {
+    const main = document.querySelector('.main')
+    const title = document.querySelector('.App__title')
+    const logo = document.querySelector('.App__logo')
+    const { ethniInputValue, ethniCells } = this.state
+    event.preventDefault()
+    if (ethniInputValue === '' || ethniInputValue.length < 2) {
+      alert('Invalid cell name! The minimum number of characters is 2 characters')
+      return
+    } else if (ethniInputValue.length > 50) {
+      alert(`Invalid cell name! the maximum number of characters is 50 characters. You entered ${ethniInputValue.length} characters`)
+      return
+    }
+    ethniCells.push({ id: ethniIndex, text: ethniInputValue })
+    ethniIndex++;
+    this.setState({
+      ethniPopup: false,
+      ethniInputValue: '',
+    })
+
+    main.style.filter = 'blur(0px)'
+    title.style.filter = 'blur(0px)'
+    logo.style.filter = 'blur(0px)'
+    document.body.style.overflow = 'inherit'
     return
   }
 
@@ -97,6 +167,16 @@ class Main extends React.Component {
     })
   }
 
+  removeEthniCell = (id) => {
+    const currentCells = [...this.state.ethniCells];
+    const newCells = currentCells.filter((cell) => (
+      cell.id !== id
+    ))
+    this.setState({
+      ethniCells: newCells
+    })
+  }
+
   render() {
     const newCell = this.state.cells.map((ele) => (
       <Cell
@@ -107,24 +187,48 @@ class Main extends React.Component {
       />
     ))
 
+    const newEthniCell = this.state.ethniCells.map((ele) => (
+      <CellEthni
+        key={ele.id}
+        id={ele.id}
+        text={ele.text}
+        removeCell={this.removeEthniCell}
+      />
+    ))
+
+    const { removeDefaultOne, removeDefaultTwo, removeDefaultThree, popup, popupInputValue, ethniPopup, ethniInputValue } = this.state
+
     return (
       <>
         <main className='main'>
           <div className="main__people">people</div>
-          {this.state.removeDefaultOne ? null : <Age removeDefaultCells={this.removeDefaultCells} />}
-          {this.state.removeDefaultTwo ? null : <Ethnicity removeDefaultCells={this.removeDefaultCells} />}
-          {this.state.removeDefaultThree ? null : <DefaultThree removeDefaultCells={this.removeDefaultCells} />}
+          {removeDefaultOne ? null : <Age removeDefaultCells={this.removeDefaultCells} />}
+          {removeDefaultTwo ? null :
+            <Ethnicity
+              removeDefaultCells={this.removeDefaultCells}
+              showEthniPopup={this.clickHandleEthniPopup}
+              newEthniCell={newEthniCell}
+            />}
+          {removeDefaultThree ? null : <DefaultThree removeDefaultCells={this.removeDefaultCells} />}
 
           {newCell}
           <button className="addBtn" onClick={() => this.clickHandlePopup('show')}><i className="fas fa-plus"></i></button>
         </main>
-        {this.state.popup ? <Popup
-          inputValue={this.state.popupInputValue}
+        {popup ? <Popup
+          inputValue={popupInputValue}
           hidePopup={this.clickHandlePopup}
           addCell={this.addCell}
           change={this.onChangeInput}
         />
           : null}
+
+        {ethniPopup ? <EthniPopup
+          ethniInputValue={ethniInputValue}
+          change={this.onChangeEthniInput}
+          hidePopup={this.clickHandleEthniPopup}
+          addEthniCell={this.addEthniCell}
+        /> : null
+        }
       </>
     )
   }
